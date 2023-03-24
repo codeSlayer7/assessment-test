@@ -59,18 +59,19 @@ function Navbar() {
         <div className="w-[90%] mx-auto mt-10 pb-20">
           <SearchInput term={term} setTerm={setTerm} sorting={sorting} />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 min-h-[100vh]  max-h-[100%] dark:bg-gray-800 mb-5">
-            {users
-              .filter((user) => {
-                return user.name.toLowerCase().includes(term.toLowerCase());
-              })
-              .map((card) => (
-                <Card
-                  key={card.id}
-                  card={card}
-                  storage={users}
-                  setStorage={setUsers}
-                />
-              ))}
+            {users.length &&
+              users
+                .filter((user) => {
+                  return user.name.toLowerCase().includes(term.toLowerCase());
+                })
+                .map((card) => (
+                  <Card
+                    key={card.id}
+                    card={card}
+                    storage={users}
+                    setStorage={setUsers}
+                  />
+                ))}
           </div>
         </div>
       </div>
